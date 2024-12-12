@@ -1,0 +1,549 @@
+/* taille tablette *
+@media all and (max-width: 1225px) {
+    #about-us li {
+        width: 80%;
+        margin-bottom: 1em;
+    }
+    #products div {
+        padding: 0 0 0 6em;
+    }
+}
+@media all and (max-width: 1140px) {
+    #contact .container,
+    #products,
+    #about-us {
+        flex-direction: column-reverse;
+        padding-inline: 3%;
+    }
+    #contact,
+    #why-us,
+    #products,
+    #about-us {
+        margin-block: 3rem;
+    }
+    #about-us ul {
+        display: flex;
+        gap: 40px;
+    }
+    #about-us ul li {
+        margin-bottom: 0;
+    }
+    #products aside {
+        width: 100%;
+        height: 300px;
+    }
+    #contact .img__contact,
+    #products img,
+    #about-us img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 300px;
+    }
+    #products div {
+        padding: 0;
+    }
+    #question h2,
+    #products div h2,
+    #about-us div h2 {
+        margin-block: 1rem;
+    }
+    #question {
+        margin-block: 3rem;
+    }
+    #why-us div {
+        gap: 1em;
+    }
+    #why-us article {
+        max-width: 100%;
+    }
+    #contact {
+        margin-bottom: 0;
+    }
+    #contact .container{
+        text-align: center;
+        padding: 3rem;
+    }
+    #contact .container > div > h2 {
+        width: 100%;
+    }
+    #contact .container > div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #contact .container > div > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33%;
+        padding-bottom: 0px;
+    }
+    #contact .container > div > div > h3{
+        width: auto;
+    }
+    footer {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    footer > div{
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 50%;
+        padding: 0 1em;
+    }
+    #about-us li {
+        width: 80%;
+        margin-bottom: 1em;
+    }
+    #products div {
+        padding: 0;
+    }
+}
+    /*
+    #contact .container,
+    #products,
+    #about-us {
+        flex-direction: column-reverse;
+        padding-inline: 3%;
+    }
+    #contact,
+    #why-us,
+    #products,
+    #about-us {
+        margin-block: 3rem;
+    }
+    #about-us ul {
+        display: flex;
+        gap: 40px;
+    }
+    #about-us ul li {
+        margin-bottom: 0;
+    }
+    #products aside {
+        width: 100%;
+        height: 300px;
+    }
+    #contact .img__contact,
+    #products img,
+    #about-us img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 300px;
+    }
+    #products div {
+        padding: 0;
+    }
+    #question h2,
+    #products div h2,
+    #about-us div h2 {
+        margin-block: 1rem;
+    }
+    #question {
+        margin-block: 3rem;
+    }
+    #why-us div {
+        gap: 1em;
+    }
+    #why-us article {
+        max-width: 100%;
+    }
+    #contact {
+        margin-bottom: 0;
+    }
+    #contact .container{
+        text-align: center;
+        padding: 3rem;
+    }
+    #contact .container > div > h2 {
+        width: 100%;
+    }
+    #contact .container > div {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #contact .container > div > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 33%;
+        padding-bottom: 0px;
+    }
+    #contact .container > div > div > h3{
+        width: auto;
+    }
+    footer {
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    footer > div{
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 50%;
+        padding: 0 1em;
+    }*/
+/* taille smartphone 
+@media all and (max-width: 700px) {
+    .logo{
+        width: 160px;
+    }
+    #banner,
+    .carousel__img {
+        min-height: 300px;
+    }
+    #banner p { 
+        font-size: 30px;
+    }
+    #banner p span { 
+        font-size: 25px;
+    }
+    #banner .arrow img{
+        width: 30px;
+    }
+    #contact .container,
+    #products,
+    #about-us {
+        padding-inline: 1%;
+    }
+    #question,
+    #why-us,
+    #products,
+    #about-us {
+        margin-block: 2rem;
+    }
+    #about-us ul {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 0.5em;
+    }
+    #about-us ul li {
+        width: 100%;
+    }
+    #products aside {
+        width: 100%;
+        height: 300px;
+    }
+    #contact .img__contact,
+    #products img,
+    #about-us img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        height: 200px;
+    }
+    #products div {
+        padding: 0;
+        padding: 0 0.5em;
+    }
+    #contact .container h2,
+    #why-us h2,
+    #question h2,
+    #products div h2,
+    #about-us div h2 {
+        margin-block: 1rem;
+        font-size: 1.6em;
+        text-align: center;
+    }
+    #question {
+        text-align: center;
+    }
+    #why-us div {
+        flex-direction: column;
+        gap: 2em;
+        padding-top: 1em;
+    }
+    #why-us article img {
+        width: 3em;
+        height: auto;
+    }
+    #why-us div h3 {
+        margin-block: 0.2em;
+    }
+    #contact .container > div {
+        gap: 1em;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+    }
+    #contact .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #contact .container h2 {
+        align-items: flex-start;
+        display: flex;
+        margin-block: 0;
+        padding-top: 1em;
+    }
+    #contact .container > div > div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+    #contact .container > div:nth-child(1) {
+        width: 80%;
+    }
+    #contact .container > div > div > p {
+        margin-bottom: 1rem;
+    }
+
+    footer {
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+    footer > div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+    footer > div:nth-child(3){
+        gap: 20px;
+    }
+    footer > div > .footer-logo {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* taille smartphone */
+@media all and (max-width: 700px) {
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    section {
+        margin-block: 6em;
+    }
+    h2 {
+        font-family: 'Roboto Slab', sans-serif;
+        font-size: 25px;
+        font-weight: 900;
+        margin: 30px 0;
+    }
+    h3{
+        font-family: 'Roboto Slab', sans-serif;
+        font-size: 22px;
+        font-weight: 900;
+        margin-block: 1em;
+    }
+    
+    p, li {
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .container {
+        max-width: 1440px;
+        margin-inline:auto;
+        padding-inline: 0%;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo{
+        width: 150px;
+        margin-block: 10px;
+    }
+    
+    .btn {
+        background-color: var(--primary-color) ;
+        height: 100%;
+        padding: 16px 32px;
+        margin-inline:5px;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none;
+    }
+    .devis {
+        background-color: var(--secondary-color);
+    }
+    
+    #banner {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 250px;
+        overflow: hidden;
+    }
+    /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
+    #carousel { 
+        display: flex;
+    }
+    .carousel__item {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 0 100%;
+    }
+    .carousel__img {
+        min-height: 250px;
+    }
+    /* Gestion des fleches du carrousel */
+    #banner .arrow {
+        position: absolute;
+        background-color: #28363d00;
+        border: none;
+        cursor: pointer;
+    }
+    #banner .arrow_left {
+        left: 10px;
+    }
+    #banner .arrow_right {
+        right: 10px;
+    }
+    /* Gestion des points du carrousel */
+    .dots {
+        bottom: 10px;
+    }
+    /* Fin du code CSS pour le carousel */
+    #banner p {
+        font-size: 25px;
+        line-height: 25px;
+    }
+    #banner span {
+        display: block;
+        font-weight: 400;
+        font-size: 20px;
+    }
+    #about-us,
+    #products,
+    #question,
+    #why-us,
+    #contact,
+    #contact .container,
+    footer{
+        display: flex;
+        flex-direction: column;
+        margin-block: 0em;
+    }
+    #about-us,
+    #products {
+        flex-direction: column-reverse;
+    }
+    #about-us article, #about-us aside {
+        flex:1;
+    }
+    #about-us h2 {
+        margin-top: 0;
+    }
+    #about-us ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    #about-us li {
+        background: url("./images/tricolor-icon.png") no-repeat left top;
+        font-size: 16px;
+        line-height: 26px;
+        padding-left:2em;
+        width: 100%;
+        margin-bottom: 0em;
+    }
+    #products div, #products aside {
+        flex:1;
+    }
+    #about-us div,
+    #products div {
+        padding: 1em;
+    }
+    #products h2 {
+        margin-top: 0;
+    }
+    .bg-yellow {
+        background-color: var(--third-color);
+    }
+    #question {
+        text-align: center;
+        padding-block: 0em;
+        padding-bottom: 2em;
+    }
+    #question h2 {
+        margin-bottom: 10px;
+    }
+    #question p {
+        margin-bottom: 20px;
+    }
+    aside img,
+    .img__contact{
+        width: 100%;
+    }
+    #why-us > div{
+        flex-direction: column;
+    }
+    #why-us article {
+        max-width: 100%;
+        padding-bottom: 2em;
+    }
+    #why-us article h3 {
+        margin-block: 0.3em;
+    }
+    #why-us img {
+        width: 33%;
+        height: 150px;
+        text-align: center;
+        margin-inline: auto;
+        margin-block: 0;
+        object-fit: contain;
+    }
+    
+    .bg-lightblue{
+        background-color: #E6F4FB;
+    }
+    #contact article, #contact div {
+    }
+    
+    
+    #contact .container  {
+        display: flex;
+        padding: 0em ;
+    }
+    
+    #contact .container > div > div {
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+    
+    #contact h3 {
+        margin-top: 0;
+        background: url("./images/tricolor-icon.png") no-repeat left top;
+        padding-left:1.5em;
+        width: 200px;
+    }
+    .inline-icon {
+        vertical-align: middle;
+    }
+    footer div {
+	margin-block: 1em;
+    }
+    .footer-logo {
+        background-color: white;
+        margin-block: 1em;
+        padding: 10px;
+    }
+    .footer-contact {
+        margin-bottom: 1em;
+        font-weight: 700;
+        font-size: 16px;
+    
+    }
+    #shadow-host-companion {
+        margin-block: 0;
+    }
+}
+
+
