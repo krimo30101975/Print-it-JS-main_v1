@@ -112,54 +112,36 @@ header {
 	overflow: hidden;
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
-#carousel { 
-	display: flex;
-}
-.carousel__item {
+  .carousel-container {
 	position: relative;
+	width: 100%;
+	overflow: hidden;
+	min-height: 470px;
+  }
+  
+  /* Piste de défilement */
+  .carousel-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	width: 100%;
+  }
+  
+  /* Chaque slide */
+  .carousel-slide {
+	position: relative;
+	min-width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex: 1 0 100%;
-}
-.carousel__img {
+  }
+  
+  .carousel-slide img {
 	width: 100%;
-	min-height: 470px;
-}
-/* Gestion des fleches du carrousel */
-#banner .arrow {
-	position: absolute;
-	background-color: #28363d00;
-	border: none;
-	cursor: pointer;
-}
-#banner .arrow_left {
-	left: 10px;
-}
-#banner .arrow_right {
-	right: 10px;
-}
-/* Gestion des points du carrousel */
-.dots {
-	position: absolute;
-	bottom: 40px;
-	display: flex;
-}
-.dot {
-	margin-inline: 5px;
-	width: 13px;
-	height: 13px;
-	background-color: #ffffff00;
-	border: 3px solid #fff;
-	border-radius: 100%;
-	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-	cursor: pointer;
-}
-.dot_selected {
-	background-color: #fff;
-}
-/* Fin du code CSS pour le carousel */
-#banner p {
+	height: 470px;
+	object-fit: cover;
+  }
+  
+  .carousel-slide .comment {
 	position: absolute; /* AJOUT */
 	display: flex; /* AJOUT */
 	flex-direction: column; /* AJOUT */
@@ -173,12 +155,75 @@ header {
 	color: white;
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	text-align: center;
-}
-#banner span {
-	display: block;
-	font-weight: 400;
-	font-size: 30px;
-}
+  }
+  .carousel-slide span {
+	  display: block;
+	  font-weight: 400;
+	  font-size: 30px;
+  }
+  
+  /* Flèches */
+  .carousel-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 1000;
+  }
+  
+  .left-arrow {
+	left: 10px;
+  }
+  
+  .right-arrow {
+	right: 10px;
+  }
+  
+  .carousel-arrow img {
+	width: 40px;
+	height: 40px;
+  }
+  
+  /* Dots */
+  .carousel-dots {
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 10px;
+  }
+  
+  .carousel-dots .dot {
+	margin-inline: 5px;
+	width: 13px;
+	height: 13px;
+	background-color: #ffffff00;
+	border: 3px solid #fff;
+	border-radius: 100%;
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+  }
+  
+  .carousel-dots .dot.active {
+	background-color: #fff;
+	opacity: 1;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+	.carousel-slide .comment {
+	  font-size: 1rem;
+	}
+  
+	.carousel-arrow img {
+	  width: 30px;
+	  height: 30px;
+	}
+  }
+  
 #about-us {
 	display: flex;
 }
@@ -305,4 +350,3 @@ footer div {
 	font-size: 16px;
 
 }
-

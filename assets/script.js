@@ -1,116 +1,89 @@
-/*
-const slides = [
-	{
-		"image":"slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
-	},
-	{
-		"image":"slide2.jpg",
-		"tagLine":"Tirages haute définition grand format <span>pour vos bureaux et events</span>"
-	},
-	{
-		"image":"slide3.jpg",
-		"tagLine":"Grand choix de couleurs <span>de CMJN aux pantones</span>"
-	},
-	{
-		"image":"slide4.png",
-		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
-	}
-]*/
 
-// variables globales
-let compteur = 0; // compteur qui permet de connaître l'image sur laquelle on se trouvent
-let timer, carousel, slides, slideWidth, speed;
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(document.querySelectorAll('.carousel-slide'));
+const dots = Array.from(document.querySelectorAll('.dot'));
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
 
-window.onload = () => {
-	// On récupère le diporama
-	const banner = document.querySelector("#banner");
-	// On récupère le data__speed
-	//         speed = banner.dataset.speed;
-	
-	// récupèrer mon carousel
-	carousel = document.querySelector("#carousel");
-	// console.log(carousel)
+const slideWidth = slides[0].clientWidth;
+let currentIndex = 0;
 
-	// On clone la premiere image
-	let firstImage = carousel.firstElementChild.cloneNode(true);
+// Ajouter les clones
+const firstClone = slides[0].cloneNode(true);
+const lastClone = slides[slides.length - 1].cloneNode(true);
 
-	// On injecte le clone à la fin du carousel
-	carousel.appendChild(firstImage);
-	
-	// récupèrer les enfants de mon carousel
-	slides = Array.from(carousel.children);
-	// console.log(slides)
+track.appendChild(firstClone);
+track.insertBefore(lastClone, slides[0]);
 
-	// On récupère la largeur (rectangle) d'une slide
-	slideWidth = banner.getBoundingClientRect().width;
+// Ajuster la position initiale pour inclure le clone de fin
+currentIndex = 1; // À cause du clone
+track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-	// On récupère les flèches
-	let next = document.querySelector(".arrow_right");
-	let prev = document.querySelector(".arrow_left");
-
-	// On gère le clic
-	next.addEventListener("click", slideNext);
-	prev.addEventListener("click", slidePrev);
-
-	// automatiser le défilement
-	//                timer = setInterval(slideNext, speed);
-}
-/**
- *  Cette fonction fait défiler le diaporama vers la droite
- */
-function slideNext() {
-	// On incrémente le compteur
-	compteur++;
-
-	// temps et forme de la transition des slides
-	carousel.style.transition = "0.3s linear";
-
-	// création de la variable decal pour inclure le translate -X du carousel
-	let decal = -slideWidth * compteur;
-	carousel.style.transform = `translateX(${decal}px)`;
-
-	// On attend la fin de la transition et on "rembobine" de façon cachée
-	setTimeout(function() {
-		if(compteur >= slides.length - 1) {
-			compteur = 0;
-			carousel.style.transition = "unset";
-			carousel.style.transform = "translateX(0)";
-		}
-		indicateur();
-	}, 300);
+// Mettre à jour les dots
+function updateDots() {
+  dots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === (currentIndex - 1 + slides.length) % slides.length);
+  });
 }
 
-/**
- *  Cette fonction fait défiler le diaporama vers la gauche
- */
-function slidePrev() {
-	// On incrémente le compteur
-	compteur--;
-
-	// temps et forme de la transition des slides
-	carousel.style.transition = "0.3s linear";
-
-	if(compteur < 0) {
-		compteur = slides.length - 1;
-		// création de la variable decal pour inclure le translate -X du carousel
-		let decal = -slideWidth * compteur;
-		carousel.style.transition = "unset";
-		carousel.style.transform = `translateX(${decal}px)`;
-		setTimeout(slidePrev, 1);
-	}
-	indicateur();
-	// création de la variable decal pour inclure le translate -X du carousel
-	let decal = -slideWidth * compteur;
-	carousel.style.transform = `translateX(${decal}px)`;
+// Déplacer vers un slide donné
+function goToSlide(index) {
+  track.style.transition = 'transform 0.5s ease-in-out';
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
 }
 
-// boutons indicateur de slide "dots"
-let dots = document.querySelectorAll(".dot")
-function indicateur() {
-	for(i = 0; i < dots.length; i++) {
-		dots[i].className = dots[i].className.replace(" dot_selected", "");
-	}
-	dots[compteur].className += " dot_selected";
+// Ajuster la position après un cycle
+function checkPosition() {
+  if (currentIndex === 0) {
+    track.style.transition = 'none';
+    currentIndex = slides.length;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
+  if (currentIndex === slides.length + 1) {
+    track.style.transition = 'none';
+    currentIndex = 1;
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  }
 }
+
+// Flèche droite
+rightArrow.addEventListener('click', () => {
+  if (currentIndex <= slides.length) {
+    currentIndex++;
+    goToSlide(currentIndex);
+    updateDots();
+  }
+});
+
+// Flèche gauche
+leftArrow.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    goToSlide(currentIndex);
+    updateDots();
+  }
+});
+
+// Transition terminée : vérifier position
+track.addEventListener('transitionend', checkPosition);
+
+// Swipe pour écrans tactiles
+let startX = 0;
+
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diff = startX - endX;
+
+  if (diff > 50) {
+    rightArrow.click();
+  } else if (diff < -50) {
+    leftArrow.click();
+  }
+});
+
+
 

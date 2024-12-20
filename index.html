@@ -18,34 +18,42 @@
 	<a class="btn devis" href="mailto:contact@print-it.tld">Devis</a>
 </header>
 <main>
-	<div id="banner" data-speed = "10000">
-		<div id="carousel">
-			<div class="carousel__item">
-				<img class="carousel__img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
-				<p>Impressions tous formats <span>en boutique et en ligne</span></p>
-			</div>
-			<div class="carousel__item">
-				<img class="carousel__img" src="./assets/images/slideshow/slide2.jpg" alt="Banner Print-it">
-				<p>Tirages haute définition grand format <span>pour vos bureaux et events</span></p>
-			</div>
-			<div class="carousel__item">
-				<img class="carousel__img" src="./assets/images/slideshow/slide3.jpg" alt="Banner Print-it">
-				<p>Grand choix de couleurs <span>de CMJN aux pantones</span></p>
-			</div>
-			<div class="carousel__item">
-				<img class="carousel__img" src="./assets/images/slideshow/slide4.png" alt="Banner Print-it">
-				<p>Autocollants <span>avec découpe laser sur mesure</span></p>
-			</div>
-		</div>
-		<button class="arrow arrow_left" onclick="prevSlider()"><img src="assets/images/arrow_left.png" alt="fléche gauche"></button>
-		<button class="arrow arrow_right" onclick="prevSlider()"><img src="assets/images/arrow_right.png" alt="fléche droite"></button>
-		<div class="dots">
-			<div class="dot dot_selected" attr="0"></div>
-			<div class="dot" attr="1"></div>
-			<div class="dot" attr="2"></div>
-			<div class="dot" attr="3"></div>
-		</div>
-	</div>
+	<!-- Conteneur principal du carrousel -->
+    <div class="carousel-container">
+        <!-- Flèche gauche -->
+        <button class="carousel-arrow left-arrow"><img src="assets/images/arrow_left.png" alt="fléche gauche"></button>
+
+        <!-- Conteneur des images et des commentaires -->
+        <div class="carousel-track">
+            <div class="carousel-slide">
+                <img src="./assets/images/slideshow/slide1.jpg" alt="Image 1">
+                <p class="comment">Impressions tous formats <span>en boutique et en ligne</span></p>
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/images/slideshow/slide2.jpg" alt="Image 2">
+                <p class="comment">Tirages haute définition grand format <span>pour vos bureaux et events</span></p>
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/images/slideshow/slide3.jpg" alt="Image 3">
+                <p class="comment">CGrand choix de couleurs <span>de CMJN aux pantones</span></p>
+            </div>
+            <div class="carousel-slide">
+                <img src="./assets/images/slideshow/slide4.png" alt="Image 4">
+                <p class="comment">Autocollants <span>avec découpe laser sur mesure</span></p>
+            </div>
+        </div>
+
+        <!-- Flèche droite -->
+        <button class="carousel-arrow right-arrow"><img src="assets/images/arrow_right.png" alt="fléche droite"></button>
+
+        <!-- Dots -->
+        <div class="carousel-dots">
+            <span class="dot" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+        </div>
+    </div>
 	<section id="about-us" class="container">
 		<div>
 			<h2>Qui sommes-nous ?</h2>
